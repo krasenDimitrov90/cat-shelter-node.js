@@ -23,7 +23,18 @@ module.exports = (req, res) => {
 
     if (pathName === '/cats/add-cat' && req.method === 'GET') {
         const filePath = path.normalize(path.join(__dirname, '../', '/views/addCat.html'));
-        sendFile(res, filePath);
+        fs.readFile(filePath, (err, data) => {
+            if (err) {
+                console.log(err);
+            } else {
+                const catBreedPlaceholder = breeds.map(breed => `<option value="${breed}" >${breed}</option>`);
+                const modifyData = data.toString().replace("{{catBreeds}}", catBreedPlaceholder);
+
+                res.writeHead(200, { 'Content-Type': 'text/html' });
+                res.write(modifyData);
+                res.end();
+            }
+        });
 
     } else if (pathName === '/cats/add-cat' && req.method === 'POST') {
 
@@ -41,7 +52,7 @@ module.exports = (req, res) => {
 
             const filePath = path.normalize(path.join(__dirname, '../data/breeds.json'));
 
-            fs.writeFile(filePath, JSON.stringify(breeds), (err, data) => {
+            fs.writeFile(filePath, JSON.stringify(breeds), (err) => {
                 if (err) throw err;
                 console.log({ data });
             });
