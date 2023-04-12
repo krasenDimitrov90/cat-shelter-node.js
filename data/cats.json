@@ -1,9 +1,37 @@
 [
   {
     "id": 1,
-    "name": "asdasdasdasd",
-    "description": "asdadadad",
+    "name": "Pepa",
+    "description": "Anather cat",
     "breed": "first",
-    "image": "cv-picture.jpg"
+    "image": "bengal.jpg"
+  },
+  {
+    "id": 2,
+    "name": "Ana",
+    "description": "Some cat",
+    "breed": "Persian",
+    "image": "angora.jpg"
+  },
+  {
+    "id": 3,
+    "name": "Kina",
+    "description": "Cuty cat",
+    "breed": "Unknown breed",
+    "image": "birman.jpg"
+  },
+  {
+    "id": 4,
+    "name": "Petunia",
+    "description": "Like a flower",
+    "breed": "Persian",
+    "image": "persian.jpeg"
+  },
+  {
+    "id": 5,
+    "name": "Kate",
+    "description": "Crazy funny cat",
+    "breed": "Persian",
+    "image": "bengal.jpg"
   }
 ]

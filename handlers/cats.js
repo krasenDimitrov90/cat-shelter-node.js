@@ -18,9 +18,7 @@ const sendFile = (res, filePath) => {
     });
 };
 
-const catTemplate = () => (
-    ``
-);
+
 
 
 module.exports = (req, res) => {

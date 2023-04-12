@@ -3,6 +3,7 @@
 * {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
 html, body {
@@ -98,10 +99,6 @@ form button:hover {
     color: lightblue;
 }
 
-.cats {
-    margin-left: 5rem;
-    margin-right: 5rem;
-}
 
 .cats ul {
     display: flex;
@@ -112,12 +109,11 @@ form button:hover {
 }
 
 .cats li {
-    width: 26.5%;
+    /* width: 26.5%; */
     margin-left: 5rem;
     margin-bottom: 1.5rem;
     background-color: #fff;
-    border-bottom-left-radius: 7px;
-    border-bottom-right-radius: 7px;
+    border-radius: 7px;
 }
 
 .cats ul li .buttons {
