@@ -2,6 +2,7 @@ const url = require('url');
 const fs = require('fs');
 const path = require('path');
 const cats = require('../data/cats');
+const formidable = require('formidable');
 
 const catTemplate = (cat) => (
     `<li>
@@ -40,6 +41,26 @@ module.exports = (req, res, next) => {
             }
         });
 
+    } else if (pathName === '/' && req.method === 'POST') {
+        const form = new formidable.IncomingForm();
+        form.parse(req, (err, fields, files) => {
+            if (err) throw err;
+
+            let filePath = path.normalize(path.join(__dirname, '../views/home/index.html'));
+            const catSearch = fields.search;
+            const filteredCats = cats.filter(cat => cat.name.startsWith(catSearch));
+
+            fs.readFile(filePath, (err, data) => {
+                if (err) throw err;
+
+                const catsCards = filteredCats.map(cat => catTemplate(cat)).join('');
+                const modifiedData = data.toString().replace("{{cats}}", catsCards);
+
+                res.writeHead(200, { 'Content-Type': 'text/html' });
+                res.write(modifiedData);
+                res.end();
+            });
+        });
     } else {
         return true;
     }
