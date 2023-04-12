@@ -1,1 +1,9 @@
-[]
+[
+  {
+    "id": 1,
+    "name": "asdasdasdasd",
+    "description": "asdadadad",
+    "breed": "first",
+    "image": "cv-picture.jpg"
+  }
+]
