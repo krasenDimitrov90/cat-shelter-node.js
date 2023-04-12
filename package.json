@@ -8,5 +8,8 @@
   },
   "keywords": [],
   "author": "GS",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "formidable": "^2.1.1"
+  }
 }
